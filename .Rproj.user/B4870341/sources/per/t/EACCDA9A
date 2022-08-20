@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1660801883802.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3129353773",
+    "id" : "EACCDA9A",
+    "lastKnownWriteTime" : 1547736990,
+    "last_content_update" : 1547736990,
+    "path" : "C:/Users/Usuario/Desktop/OpenCloud-master/ui.r",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "659,41",
+        "scrollLine" : "625"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

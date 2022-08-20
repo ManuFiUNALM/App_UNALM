@@ -1,0 +1,76 @@
+"1","
+"
+"1","  Binaries will be installed
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/htmltools_0.5.1.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 242935 bytes (237 KB)
+"
+"2","downloaded 237 KB
+
+"
+"1","package ‘htmltools’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\Usuario\AppData\Local\Temp\RtmpwxRxYD\downloaded_packages"
+"1",""
+"1","
+"
+"2","installing the source package �bslib�
+
+"
+"2","trying URL 'https://cran.rstudio.com/src/contrib/bslib_0.4.0.tar.gz'
+"
+"2","Content type 'application/x-gzip'"
+"2"," length 4835866 bytes (4.6 MB)
+"
+"2","downloaded 4.6 MB
+
+"
+"1","* installing *source* package 'bslib' ...
+"
+"1","** package 'bslib' successfully unpacked and MD5 sums checked
+"
+"1","** using staged installation
+"
+"1","** R
+"
+"1","** inst
+"
+"1","** byte-compile and prepare package for lazy loading
+"
+"1","Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+"
+"1","  namespace 'htmltools' 0.5.1.1 is being loaded, but >= 0.5.2 is required
+"
+"1","Calls: <Anonymous> ... withCallingHandlers -> loadNamespace -> namespaceImport -> loadNamespace
+"
+"1","Execution halted
+"
+"1","ERROR: lazy loading failed for package 'bslib'
+"
+"1","* removing 'C:/Users/Usuario/Documents/R/win-library/3.6/bslib'
+"
+"1","Warning in "
+"1",""
+"1","install.packages"
+"1",""
+"1"," :
+  "
+"1",""
+"1","installation of package ‘bslib’ had non-zero exit status"
+"1",""
+"1","
+"
+"2","
+"
+"2",""
+"2","The downloaded source packages are in
+	‘C:\Users\Usuario\AppData\Local\Temp\RtmpwxRxYD\downloaded_packages’"
+"2",""
+"2","
+"

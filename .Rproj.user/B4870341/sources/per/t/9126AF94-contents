@@ -1,0 +1,19 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+#shiny
+#htmltools
+#bslib
+#rmarkdown
+#flexdashboard
+#rsconnect
+```
+
+```{r}
+install.packages("bslib")
+```
+

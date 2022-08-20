@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1659398777125.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3346646612",
+    "id" : "9126AF94",
+    "lastKnownWriteTime" : 1659399675,
+    "last_content_update" : 1659399675851,
+    "path" : "F:/Meteomanu/R-Ladies_Shiny/iniciando.Rmd",
+    "project_path" : "iniciando.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "16,25",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

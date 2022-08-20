@@ -1,0 +1,133 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+#shiny
+#htmltools
+#bslib
+#rmarkdown
+#flexdashboard
+#rsconnect
+```
+
+```{r}
+install.packages("bslib")
+```
+
+```{r}
+library(readxl)
+stn_metadata <- read_excel("base_estaciones/ACTUALIZANDO_pp_estaciones_Peru.xlsx", sheet = "Metadata_solo_Maranon")
+stn_metadata # %>% select(-N)
+```
+```{r}
+stn_pp <- read_excel("base_estaciones/ACTUALIZANDO_pp_estaciones_Peru.xlsx", sheet = "pp_estaciones_Peru", skip=1, col_names = TRUE, col_types= c("date",rep("numeric",87)))
+stn_pp
+```
+
+```{r}
+str(stn_pp)
+```
+
+
+```{r}
+#stn_pp$EL PINTOR
+colnames(stn_pp)#[2]
+#stn_pp$"EL PINTOR"
+# stn_pp[2]
+```
+
+
+```{r}
+vec_N <- stn_metadata %>% pull("N")
+vec_N
+class(vec_N)
+```
+
+
+```{r}
+# class(stn_pp$"...1")
+idx <- as.Date(stn_pp$"...1")
+# data.matrix <- stn_pp[,-1]
+data.matrix <- stn_pp[,-1][vec_N]#[c(1,8)]
+data.matrix
+```
+
+```{r}
+data.xts <- xts(data.matrix, order.by = idx )
+str(data.xts)
+```
+
+```{r}
+plot(data.xts)
+```
+
+
+```{r}
+data.zoo <- as.zoo(data.xts)
+str(data.zoo)
+```
+
+```{r}
+plot(data.zoo, main = "Series de tiempo de precipitación")
+```
+
+```{r}
+xyplot(data.xts,xlab = "Fecha",ylab = "Precipitación [mm/dia]",
+ylim=c(0,100))
+```
+
+```{r}
+# xyplot(data.xts[,1],xlab = "Fecha",ylab = "Precipitación [mm/dia]",ylim=c(0,100))
+# plot_ly(as.DataFrame(data.xts[,1]) , type= 'scatter', mode='lines', name= 'T max')
+#plot_ly(x= datos_stn$FECHA, y= datos_stn[,input$select_stn] , type= 'scatter', mode='lines', name= 'T max')
+#plot(data.xts[,1])
+```
+
+
+
+```{r}
+stn_id <- which.max(stn_metadata$Estaciones=="EL PINTOR")
+
+    leaflet() %>%
+      addTiles() %>%
+      
+      # addRasterImage(IR04, colors = pal,
+      #                opacity=0.2) %>%
+      # addLegend(pal= pal, values= values(IR04),
+      #           title='IR4') %>%
+      
+      ## marker en un punto
+      # addMarkers(
+      #     lng= c(-71), lat= c(-12),
+      #     icon = NULL,
+      #         # list(
+      #         #        iconUrl = "https://www.freeiconspng.com/uploads/black-circle-icon-23.png",  # circulo gris
+      #         #        iconUrl = "https://www.freeiconspng.com/uploads/black-square-frame-23.png", # cuadrado gris
+      #         #        iconUrl = "https://www.freeiconspng.com/uploads/red-triangle-png-20.png",     # triangulo rojo
+      #         #        iconUrl = 'http://icons.iconarchive.com/icons/artua/star-wars/128/Master-Joda-icon.png',
+      #         #        iconSize = c(75,75)
+    #         #    ),
+    #     popup = c("RStudio @ CiudadX")
+    # ) %>%
+    
+    
+    # addMarkers(data = stn_metadata[stn_id, ],
+    #            lng = ~ Longitud, lat = ~ Latitud 
+    #            # icon = list(
+    #            #                iconUrl = 'http://icons.iconarchive.com/icons/artua/star-wars/128/Master-Joda-icon.png',
+    #            #                iconSize = c(75, 75)
+    #            #            )
+    # ) %>%
+      
+      addCircles(data = stn_metadata[stn_id, ], lat = ~ Latitud, lng = ~ Longitud, color='red') #%>%
+      
+      #addPopups(-93.65, 42.0285, "Here is the <b>Department of Statistics</b>, ISU") %>%
+      
+      #addCircleMarkers(rand_lng(50), rand_lat(50), color = "#ff0000")
+  
+
+```
+

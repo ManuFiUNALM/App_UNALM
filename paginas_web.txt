@@ -1,0 +1,11 @@
+https://mastering-shiny.org/
+https://mastering-shiny-rladies-lima.netlify.app/chapter_01.html
+
+
+shiny for python
+desde el browser
+paginas web
+netlify
+shinyuieditor
+
+shiny widget-gallery
