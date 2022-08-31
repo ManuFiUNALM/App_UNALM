@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1659399680399.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7FF47A36",
+    "lastKnownWriteTime" : 1661029722,
+    "last_content_update" : 1661029722,
+    "path" : "~/GitHub/App_UNALM/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "35,3",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

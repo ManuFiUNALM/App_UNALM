@@ -1,0 +1,121 @@
+---
+title: 'R Lectura de datos PISCO - MERH by Dr. Waldo Lavado '
+author: 'Alumno: Manuel Figueroa'
+output:
+  pdf_document:
+    toc: yes
+  html_notebook:
+    toc: yes
+---
+  
+  
+# Instalar y cargar paquetes
+```{r}
+## Leer puntos de estaciones de datos PISCO de prec a partir de
+# puntos de estaciones que estan almacenados en un archivo *.csv
+# Autores: Adrian Huerta & Waldo Lavado
+#Esta es la ruta de la carpeta donde esta Pisco
+# y deben estar el archivo *.csv con los puntos a extraer
+# ojo que es / no \
+# Descargar datos PISCO de:
+#https://iridl.ldeo.columbia.edu/SOURCES/.SENAMHI/.HSR/.PISCO/index.html?Set-Language=es
+# Este ejemplo es para los datos mensuales PISCOpm.nc
+rm(list = ls())#borramos todos los objetos en Environment
+#install.packages("raster")#Instalar el paquete comentar # si ya esta instalado
+#install.packages("ncdf4")#Instalar el paquete comentar # si ya esta instalado
+library(raster)#cargar el paquete
+library(ncdf4)
+```
+
+# Extraer puntos
+```{r}
+## Leer el archivo long_lat.csv (ver el archivo ejemplo)
+## para agregar solo dismnuya o incremente las coordenadas de las filas
+## XX Longitud e YY Latitud
+cwd <- getwd()
+# a<-("G:\\Mi unidad\\Curso Metodos Estadisticos\\2_PISCO\\Lee_PISCO")# Carpeta de trabajo
+ruta_data <- paste0(cwd, "/R_prac")
+long_lat <- read.csv(paste0(ruta_data,"/long_lat.csv"), header = T)
+### Ensamblamos los datos *.nc
+raster_pp <- raster::brick(paste0(ruta_data,"/PISCOpm2_1.nc"))
+## Asignamos las coordenadas : lo covertimos a un dato espacial SpatialPointsDataFrame
+sp::coordinates(long_lat) <- ~XX+YY 
+# Igualamos las proyecciones del raster y de los puntos a extraer
+raster::projection(long_lat) <- raster::projection(raster_pp)
+# Extraemos los valores
+points_long_lat <- raster::extract(raster_pp[[1]], long_lat, cellnumbers = T)[,1]
+data_long_lat <- t(raster_pp[points_long_lat])
+plot(data_long_lat,type="l")
+```
+
+
+```{r}
+colnames(data_long_lat) <- as.character(long_lat$NN)
+# Guardamos los datos como "data_long_lat.csv" Ud puede cambiar el nombre
+# Las filas son los datos mensuales en este caso y las columnas son los puntos seleccionados
+# Ojo que el orden esta de acuerdo al archivo long_lat.csv, de la columna NN
+##Guardar los datos
+write.csv(data_long_lat, "data_long_lat.csv", quote = F)
+
+# podemos agregar mas puntos de coordenadas para extraer multiples puntos
+```
+
+# Extraer Poligonos
+```{r}
+##Leemos por poligonos
+rm(list=ls())
+cwd <- getwd()
+# a<-("G:\\Mi unidad\\Curso Metodos Estadisticos\\2_PISCO\\Lee_PISCO")# Carpeta de trabajo
+ruta_data <- paste0(cwd, "/R_prac")
+# b<-"G:\\Mi unidad\\Curso Metodos Estadisticos\\2_PISCO\\Leer_Pisco_area"
+# #install.packages("ncdf4")
+# #install.packages("raster")
+# #install.packages("rgdal")
+library(ncdf4)
+library(raster)
+library(rgdal)
+
+```
+
+```{r}
+#leemos el netcdf
+Pisco.prec.brick <- brick(paste0(ruta_data,"/PISCOpm2_1.nc"))# leer netcdf con brick
+#Pisco.prec.brick # Enero de 1981 hasta dic 2016
+nlayers(Pisco.prec.brick)
+```
+## 
+```{r}
+spplot(Pisco.prec.brick[[1:4]]) #
+```
+
+```{r}
+# Extraer los valores prec. promedio areal para el Mantaro
+###Leemos el shape de mantaro
+cuenca.wgs <- readOGR(dsn=ruta_data, layer="mantaro")
+```
+
+```{r}
+plot(cuenca.wgs)
+```
+
+```{r}
+pp.cuenca.mensual <- extract(Pisco.prec.brick, cuenca.wgs, fun=mean)
+row.names(pp.cuenca.mensual) <- cuenca.wgs@data$NOMB_UH_N4 # CAMPO
+# cuenca.wgs@data$ORDEN
+#View(pp.cuenca.mensual)
+range(pp.cuenca.mensual)
+```
+
+
+```{r}
+plot(pp.cuenca.mensual[1,], type="l", col="blue", ylim=c(0,250), ylab="Prec. [mm]",
+xlab = "Meses", main="Prec. prom areal - MANTARO [mm]")
+```
+
+```{r}
+#pp.cuenca.mensual
+write.csv(pp.cuenca.mensual[1,], "data_mantaro.csv", quote = F)
+```
+
+
+

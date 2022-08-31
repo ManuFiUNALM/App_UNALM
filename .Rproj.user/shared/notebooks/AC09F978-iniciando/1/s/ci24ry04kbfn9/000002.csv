@@ -1,0 +1,3 @@
+"0","library(readxl)"
+"0","stn_metadata <- read_excel(""base_estaciones/ACTUALIZANDO_pp_estaciones_Peru.xlsx"", sheet = ""Metadata_solo_Maranon"")"
+"0","stn_metadata # %>% select(-N)"

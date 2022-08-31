@@ -1,0 +1,5 @@
+"0","stn_pp <- read_excel(""base_estaciones/ACTUALIZANDO_pp_estaciones_Peru.xlsx"", sheet = ""pp_estaciones_Peru"", skip=1, col_names = TRUE, col_types= c(""date"",rep(""numeric"",87)))"
+"2","New names:
+* `` -> ...1
+"
+"0","stn_pp"

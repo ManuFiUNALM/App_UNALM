@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1661071474779.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3BC29301",
+    "lastKnownWriteTime" : 1661071546,
+    "last_content_update" : 1661071546688,
+    "path" : "~/GitHub/App_UNALM/base_estaciones/helper.R",
+    "project_path" : "base_estaciones/helper.R",
+    "properties" : {
+        "cursorPosition" : "3,55",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

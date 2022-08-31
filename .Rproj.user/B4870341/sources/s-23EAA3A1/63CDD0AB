@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1661074426184.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "63CDD0AB",
+    "lastKnownWriteTime" : 1661029722,
+    "last_content_update" : 1661029722,
+    "path" : "~/GitHub/App_UNALM/base_estaciones/ui.R",
+    "project_path" : "base_estaciones/ui.R",
+    "properties" : {
+        "cursorPosition" : "47,52",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

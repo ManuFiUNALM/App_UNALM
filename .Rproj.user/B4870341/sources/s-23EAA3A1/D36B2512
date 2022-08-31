@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1661610057908.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D36B2512",
+    "lastKnownWriteTime" : 1661616584,
+    "last_content_update" : 1661616584472,
+    "path" : "F:/MasterUNALM/2do_ciclo/Metodos_Estadisticos-WLavado/Unidad 2 Lectura de datos PISCO/Read_Pisco.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "116,63",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

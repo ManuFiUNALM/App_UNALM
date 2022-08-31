@@ -1,0 +1,4 @@
+"0","# Analisis exploratorio con hydroTSM"
+"0","library(hydroTSM)"
+"2","package ‘hydroTSM’ was built under R version 3.6.3"
+"0","hydroplot(as.zoo(data.xts[,1]), var.type=""Precipitation"", pfreq = ""dma"", ylab = ""Prec"")"
